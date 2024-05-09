@@ -1,0 +1,46 @@
+﻿@model CheckMVC.Models.tblFEmployee
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create A New Employee Record</h2>
+
+@using (Html.BeginForm("Create","Employee",FormMethod.Post,new { enctype="multipart/form-data" }))
+ {
+    <table class="table">
+        <tr>
+            <td>Enter Employee Name:</td>
+            <td>@Html.EditorFor(Model => Model.Name, new { htmlAttributes = new { @class = "form-control" } }) </td>
+        </tr>
+        <tr>
+            <td>Enter Employee Designation:</td>
+            <td>@Html.EditorFor(Model => Model.Designation, new { htmlAttributes = new { @class = "form-control" } }) </td>
+        </tr>
+        <tr>
+            <td>Enter Employee Age:</td>
+            <td>@Html.EditorFor(Model => Model.Age, new { htmlAttributes = new { @class = "form-control" } }) </td>
+        </tr>
+        <tr>
+            <td>Enter Employee DOB:</td>
+            <td>@Html.EditorFor(Model => Model.DOB, new { htmlAttributes = new { @class = "form-control" } }) </td>
+        </tr>
+        <tr>
+            <td>Enter Employee Gender:</td>
+            <td>@Html.EditorFor(Model => Model.Gender, new { htmlAttributes = new { @class = "form-control" } }) </td>
+        </tr>
+        <tr>
+            <td>Enter Employee Street_Address1:</td>
+            <td>@Html.EditorFor(Model => Model.Street_Address1, new { htmlAttributes = new { @class = "form-control" } }) </td>
+        </tr>
+        <tr>
+            <td>Enter Employee Street_Address2:</td>
+            <td>@Html.EditorFor(Model => Model.Street_Address2, new { htmlAttributes = new { @class = "form-control" } }) </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" name="submit" value="Add Employee" class="btn btn-success text-center" />
+            </td>
+        </tr>
+    </table>     
+ }
+

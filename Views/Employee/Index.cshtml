@@ -1,0 +1,38 @@
+﻿@model List<CheckMVC.Models.tblFEmployee>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List Of All Employees</h2>
+<table class="table table-bordered table-striped table-hover ">
+    <tr>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Employee Designation</th>
+        <th>Employee Age</th>
+        <th>Employee DOB</th>
+        <th>Employee Gender</th>
+        <th>Employee Street_Address1</th>
+        <th>Employee Street_Address2</th>
+        <th>Operations</th>
+    </tr>
+    @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Designation</td>
+                    <td>@item.Age</td>
+                    <td>@item.DOB</td>
+                    <td>@item.Gender</td>
+                    <td>@item.Street_Address1</td>
+                    <td>@item.Street_Address2</td>
+                    <td>
+                        <a href="@Url.Action("Edit","Employee",new { @id = item.Id })" class="btn btn-warning">Edit</a>
+                        <a href="@Url.Action("Delete","Employee",new { @id = item.Id })" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete @item.Name ?')">Delete</a>
+
+                    </td>
+                </tr>
+            }
+</table>
+<a href="@Url.Action("Create","Employee")" class="btn btn-primary">Add New Employee Record</a>
